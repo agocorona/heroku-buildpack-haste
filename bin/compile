@@ -7,6 +7,11 @@ set -eo pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
+echo "Cache dir name:"
+echo $CACHE_DIR
+echo "Build dir name:"
+echo $BUILD_DIR
+
 FIXED_HOME=/app
 
 mkdir -p $CACHE_DIR
@@ -64,3 +69,5 @@ echo "Cache dir size:"
 du -ms $CACHE_DIR
 echo "Build dir size:"
 du -ms $BUILD_DIR
+
+

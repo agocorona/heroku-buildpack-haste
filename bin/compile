@@ -51,11 +51,10 @@ export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin$PATH
 
 echo "-----> Updating Cabal"
 cabal update
-csbsñ install TCache
 
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
-cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared
+cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --force-reinstalls
 
 echo "-----> Caching Cabal packages"
 echo $FIXED_HOME/.ghc

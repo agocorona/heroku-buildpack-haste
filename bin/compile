@@ -50,7 +50,6 @@ export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
 export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin$PATH
 
 echo "-----> Updating Cabal"
-ghc-pkg unregister TCache --force
 cabal update
 
 echo "-----> Release the hounds! Installing application"

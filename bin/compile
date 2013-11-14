@@ -54,6 +54,7 @@ cabal update
 
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
+cabal install monadloc-pp
 cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"
 echo $FIXED_HOME/.ghc

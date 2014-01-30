@@ -54,8 +54,8 @@ cabal update
 
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
-cabal install monadloc-pp -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls
-cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls
+cabal install monadloc-pp -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls --disable-optimization
+cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls --disable-optimization
 echo "-----> Caching Cabal packages"
 echo $FIXED_HOME/.ghc
 shopt -s extglob

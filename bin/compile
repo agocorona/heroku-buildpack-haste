@@ -51,7 +51,7 @@ export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin$PATH
 
 echo "-----> Updating Cabal"
 cabal update
-cabal install tls-1.1.5
+cabal install tls-1.2.3
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
 cabal install monadloc-pp -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls 

@@ -59,7 +59,6 @@ ghc-pkg unregister  http-client-conduit --force
 ghc-pkg unregister  warp-tls --force
 ghc-pkg unregister warp --force
 ghc-pkg unregister  wai --force
-ghc-pkg unregister  conduit --force
 
 
 .3 http-conduit-1.9.5.3 xml-conduit-1.1.0.9 zlib-conduit-1.0.0 attoparsec-condu

@@ -68,6 +68,7 @@ ghc-pkg unregister  containers --force
 ghc-pkg unregister  blaze-builder --force
 
 cabal install shakespeare-1.2.1.1
+cabal install persistent-1.2.3.0
 
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR

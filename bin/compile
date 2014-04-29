@@ -51,7 +51,7 @@ export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin$PATH
 
 echo "-----> Updating Cabal"
 cabal update
-cabal install cabal-install
+cabal install cabal
 cabal sandbox init
 
 echo "-----> Release the hounds! Installing application"

@@ -51,21 +51,6 @@ export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin$PATH
 
 echo "-----> Updating Cabal"
 #cabal update
-ghc-pkg unregister MFlow --force
-ghc-pkg unregister  tcache-AWS --force
-ghc-pkg unregister  aws --force
-ghc-pkg unregister  http-conduit --force
-ghc-pkg unregister  http-client-conduit --force
-ghc-pkg unregister  warp-tls --force
-ghc-pkg unregister warp --force
-ghc-pkg unregister  wai --force
-ghc-pkg unregister  conduit --force
-ghc-pkg unregister  cookie --force
-ghc-pkg unregister  http-client --force
-ghc-pkg unregister  data-default --force
-ghc-pkg unregister  data-default-instances-containers --force
-ghc-pkg unregister  containers --force
-ghc-pkg unregister  blaze-builder --force
 
 
 echo "-----> Release the hounds! Installing application"

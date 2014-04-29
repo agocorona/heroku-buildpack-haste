@@ -50,10 +50,7 @@ export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
 export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin$PATH
 
 echo "-----> Updating Cabal"
-cabal --version
 cabal update
-cabal install cabal-1.18.1.2
-cabal sandbox init
 
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR

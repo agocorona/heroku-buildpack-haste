@@ -59,12 +59,9 @@ ghc-pkg unregister  http-client-conduit --force
 ghc-pkg unregister  warp-tls --force
 ghc-pkg unregister warp --force
 ghc-pkg unregister  wai --force
+ghc-pkg unregister  conduit --force
 
 
-.3 http-conduit-1.9.5.3 xml-conduit-1.1.0.9 zlib-conduit-1.0.0 attoparsec-condu
-t-1.0.1.2 persistent-template-1.2.0.6 persistent-sqlite-1.2.1 persistent-1.2.3.
- monad-logger-0.3.3.1 wai-2.0.0 simple-sendfile-0.2.13 network-conduit-1.0.0 bl
-ze-builder-conduit-1.0.0 (use --force to override)
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
 cabal install monadloc-pp -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls 

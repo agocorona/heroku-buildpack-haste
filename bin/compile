@@ -57,7 +57,6 @@ echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
 cabal install monadloc-pp-0.3 -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls 
 cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls 
-cabal install warp -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls 
 
 
 cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls 

@@ -18,7 +18,7 @@ https://github.com/pufuwozu/haskell-buildpack-demo
     $ ls
     Procfile app.cabal src
 
-    $ heroku create --stack=cedar --buildpack https://github.com/pufuwozu/heroku-buildpack-haskell.git
+    $ heroku apps:create instance-name --buildpack git@github.com:agocorona/heroku-buildpack-haskell.git
 
     $ git push heroku master
     ...
@@ -32,3 +32,8 @@ https://github.com/pufuwozu/haskell-buildpack-demo
     ######################################################################## 100.0%
     -----> Setting up ghc-pkg
     ...
+
+
+
+
+

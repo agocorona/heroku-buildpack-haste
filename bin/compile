@@ -52,7 +52,7 @@ export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin$PATH
 echo "-----> Updating Cabal"
 cabal update
 
-cabal install Workflow
+cabal install TCache
 
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR

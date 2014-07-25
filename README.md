@@ -18,7 +18,7 @@ https://github.com/pufuwozu/haskell-buildpack-demo
     $ ls
     Procfile app.cabal src
 
-    $ heroku apps:create instance-name --buildpack git@github.com:agocorona/heroku-buildpack-haskell.git
+    $ heroku apps:create instance-name --buildpack https://github.com/agocorona/heroku-buildpack-haskell.git
 
     $ git push heroku master
     ...

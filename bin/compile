@@ -48,6 +48,8 @@ export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
 
 # Set PATH
 export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin$PATH
+echo $PATH
+ls
 
 echo "-----> Updating Cabal"
 cabal update

@@ -50,6 +50,9 @@ export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
 export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin:$PATH
 echo $PATH
 
+mv $FIXED_HOME/.cabal $CACHE_DIR/cabal
+mv $FIXED_HOME/ghc $CACHE_DIR/ghc
+mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
 
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
@@ -59,16 +62,14 @@ cabal update
 
 #cabal install haskell-src-exts-1.13.5
 #cabal install monadloc-pp 
-cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --force-reinstalls 
+cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  
 
-cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --force-reinstalls 
+cabal install  --disable-library-profiling --disable-executable-profiling --disable-shared  --force-reinstalls 
 echo "-----> Caching Cabal packages"
 echo $FIXED_HOME/.ghc
 shopt -s extglob
 rm $FIXED_HOME/.cabal/bin/!(cabal|happy)
-mv $FIXED_HOME/.cabal $CACHE_DIR/cabal
-mv $FIXED_HOME/ghc $CACHE_DIR/ghc
-mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
+
 
 echo "Cache dir size:"
 du -ms $CACHE_DIR

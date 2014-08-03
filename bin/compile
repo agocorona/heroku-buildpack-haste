@@ -59,7 +59,8 @@ cd $BUILD_DIR
 cabal install monadloc-pp 
 cabal install cpphs
 
-cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --force-reinstalls 
+cabal install 
+# -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --force-reinstalls 
 echo "-----> Caching Cabal packages"
 echo $FIXED_HOME/.ghc
 shopt -s extglob

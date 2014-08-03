@@ -50,8 +50,8 @@ export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
 export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin:$PATH
 echo $PATH
 
-mv $FIXED_HOME/.cabal $CACHE_DIR/cabal
-mv $FIXED_HOME/ghc $CACHE_DIR/ghc
+cp $FIXED_HOME/.cabal $CACHE_DIR/cabal
+cp $FIXED_HOME/ghc $CACHE_DIR/ghc
 
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
@@ -69,7 +69,8 @@ echo $FIXED_HOME/.ghc
 shopt -s extglob
 rm $FIXED_HOME/.cabal/bin/!(cabal|happy)
 mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
-
+rm $FIXED_HOME/.cabal $CACHE_DIR/cabal
+rm $FIXED_HOME/ghc $CACHE_DIR/ghc
 
 echo "Cache dir size:"
 du -ms $CACHE_DIR

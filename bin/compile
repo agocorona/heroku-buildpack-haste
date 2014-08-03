@@ -56,8 +56,8 @@ cabal update
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
 cabal install haskell-src-exts-1.13.5
-cabal install monadloc-pp-0.3 -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls
-cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared --reinstall --force-reinstalls
+cabal install monadloc-pp 
+cabal install cpphs
 
 cabal install -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --force-reinstalls 
 echo "-----> Caching Cabal packages"

@@ -56,7 +56,7 @@ cabal update
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
 #cabal install haskell-src-exts-1.13.5
-cabal install monadloc-pp 
+#cabal install monadloc-pp 
 cabal install cpphs
 
 cabal install 

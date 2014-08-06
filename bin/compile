@@ -61,7 +61,7 @@ cabal update
 
 #cabal install haskell-src-exts-1.13.5
 #cabal install monadloc-pp 
-cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  
+cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall
 
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"

@@ -64,7 +64,7 @@ cabal update
 cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 
 echo "------> starting the copy process"
-copy &
+./copy &
 
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"

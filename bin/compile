@@ -62,15 +62,6 @@ cabal update
 cabal install monadloc-pp 
 cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 
-echo "------> starting the copy process"
-cat > copy << EOF
-cp -u -R $FIXED_HOME/.ghc $CACHE_DIR/dotghc 
-cp -u -R $FIXED_HOME/.cabal $CACHE_DIR/cabal
-cp -u -R $FIXED_HOME/ghc $CACHE_DIR/ghc
-EOF
-chmod 777 copy
-./copy &
-
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"
 echo $FIXED_HOME/.ghc

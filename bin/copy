@@ -1,4 +1,0 @@
-cp $FIXED_HOME/.ghc $CACHE_DIR/dotghc
-cp $FIXED_HOME/.cabal $CACHE_DIR/cabal
-cp $FIXED_HOME/ghc $CACHE_DIR/ghc
-./copy

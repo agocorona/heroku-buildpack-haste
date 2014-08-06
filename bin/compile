@@ -72,17 +72,3 @@ mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
 mv $FIXED_HOME/.cabal $CACHE_DIR/cabal
 mv $FIXED_HOME/ghc $CACHE_DIR/ghc
 
-executable=$(<Procfile)
-if [ -f executable ];
-then
-   echo "File $FILE compiled."
-   
-else
-   echo "File $FILE does not exist. build it again"
-   exit 1
-fi
-echo "Cache dir size:"
-du -ms $CACHE_DIR
-echo "Build dir size:"
-du -ms $BUILD_DIR
-

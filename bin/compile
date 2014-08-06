@@ -55,14 +55,14 @@ echo $PATH
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
 
-echo "-----> Updating Cabal"
+#echo "-----> Updating Cabal"
 #cabal update
 
 #cabal install haskell-src-exts-1.13.5
 #cabal install monadloc-pp 
 cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  
 
-cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --force-reinstalls 
+cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared 
 echo "-----> Caching Cabal packages"
 echo $FIXED_HOME/.ghc
 shopt -s extglob

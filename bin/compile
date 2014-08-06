@@ -56,8 +56,8 @@ echo $PATH
 echo "-----> Release the hounds! Installing application"
 cd $BUILD_DIR
 
-#echo "-----> Updating Cabal"
-#cabal update
+echo "-----> Updating Cabal"
+cabal update
 
 #cabal install haskell-src-exts-1.13.5
 #cabal install monadloc-pp 

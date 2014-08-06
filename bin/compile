@@ -59,8 +59,7 @@ cd $BUILD_DIR
 echo "-----> Updating Cabal"
 cabal update
 
-#cabal install haskell-src-exts-1.13.5
-#cabal install monadloc-pp 
+cabal install monadloc-pp 
 cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 
 echo "------> starting the copy process"

@@ -1,4 +1,4 @@
-# Heroku Buildpack: Haskell modified for MFlow demos. 
+# Heroku Buildpack for Haskell modified for MFlow demos. 
 
 It add monadloc-pp and cpphs executables that are necessary for compiling MFlow and/or the MFlow demos.
 

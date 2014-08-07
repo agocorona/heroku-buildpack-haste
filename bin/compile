@@ -61,6 +61,8 @@ cabal update
 
 cabal install monadloc-pp 
 cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
+cabal install haste-compiler
+haste-boot
 
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"

@@ -1,27 +1,24 @@
-# Heroku Buildpack: Haskell modified for MFlow demos
+# Heroku Buildpack: Haskell modified for MFlow demos. 
+
+It add monadloc-pp and cpphs executables that are necessary for compiling MFlow and/or the MFlow demos.
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
 for Haskell apps. It uses GHC 7.4.1 and cabal-1.16.0.1.
 
-## Demo
-
-A demo is online here:
-
-http://haskell-buildpack-demo.herokuapp.com/
-
-The demo repo is here:
-
-https://github.com/pufuwozu/haskell-buildpack-demo
 
 ## Usage
+
+Use anvil to allow largue compilations:
 
     $ ls
     Procfile app.cabal src
 
-    $ heroku apps:create instance-name --buildpack https://github.com/agocorona/heroku-buildpack-haskell.git
+    $ heroku apps:create instance-name 
 
-    $ git push heroku master
-    ...
+
+    $ heroku plugins:install https://github.com/ddollar/heroku-anvil
+
+    $ heroku build -r -b https://github.com/agocorona/heroku-buildpack-haskell.git
 
     -----> Heroku receiving push
     -----> Fetching custom git buildpack... done

@@ -59,10 +59,10 @@ cd $BUILD_DIR
 echo "-----> Updating Cabal"
 cabal update
 
-cabal install monadloc-pp 
-cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
-cabal install haste-compiler --reinstall
-haste-boot
+#cabal install monadloc-pp 
+#cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
+#cabal install haste-compiler --reinstall
+#haste-boot
 
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"

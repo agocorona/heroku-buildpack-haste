@@ -51,18 +51,32 @@ export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
 export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin:$PATH
 echo $PATH
 
-
-
 echo "-----> Release the hounds! Installing application"
-cd $BUILD_DIR
 
 echo "-----> Updating Cabal"
 cabal update
 
-#cabal install monadloc-pp 
+#cabal install monadloc-pp
 #cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
-#cabal install haste-compiler --reinstall
-#haste-boot
+
+curl https://hackage.haskell.org/package/haste-compiler-0.3/haste-compiler-0.3.tar.gz tar xz -C $FIXED_HOME
+cd $FIXED_HOME
+cd haste-compiler-0.3/haste-compiler
+cabal configure -f portable
+cabal build
+haste-boot
+xport PATH=$FIXED_HOME/haste-compiler-0.3/haste-compiler:$PATH
+cd $FIXED_HOME
+git clone https://github.com/agocorona/haste-perch
+cd haste-perch
+haste-inst install
+cd $FIXED_HOME
+git clone https://github.com/agocorona/hplayground
+cd hplayground
+haste-inst install
+
+
+cd $BUILD_DIR
 
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"

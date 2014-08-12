@@ -59,7 +59,7 @@ cabal update
 #cabal install monadloc-pp
 #cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 
-curl https://hackage.haskell.org/package/haste-compiler-0.3/haste-compiler-0.3.tar.gz tar xz -C $FIXED_HOME
+curl https://hackage.haskell.org/package/haste-compiler-0.3/haste-compiler-0.3.tar.gz | tar xz -C $FIXED_HOME
 cd $FIXED_HOME
 cd haste-compiler-0.3/haste-compiler
 cabal configure -f portable

@@ -61,7 +61,7 @@ cabal update
 
 curl https://hackage.haskell.org/package/haste-compiler-0.3/haste-compiler-0.3.tar.gz | tar xz -C $FIXED_HOME
 cd $FIXED_HOME
-cd haste-compiler-0.3/haste-compiler
+cd haste-compiler-0.3
 cabal configure -f portable
 cabal build
 haste-boot

@@ -66,7 +66,7 @@ cabal configure -f portable
 cabal build
 cd haste-compiler
 ./haste-boot
-xport PATH=$FIXED_HOME/haste-compiler-0.3/haste-compiler:$PATH
+export PATH=$FIXED_HOME/haste-compiler-0.3/haste-compiler:$PATH
 cd $FIXED_HOME
 git clone https://github.com/agocorona/haste-perch
 cd haste-perch

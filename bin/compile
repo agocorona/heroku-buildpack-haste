@@ -86,6 +86,6 @@ rm $FIXED_HOME/.cabal/bin/!(cabal|happy)
 mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
 mv $FIXED_HOME/.cabal $CACHE_DIR/cabal
 cp -r $FIXED_HOME/ghc $CACHE_DIR/ghc
-mv -r $FIXED_HOME/ghc $BUILD_DIR/ghc
+mv  $FIXED_HOME/ghc $BUILD_DIR/ghc
 
 

@@ -58,7 +58,9 @@ cabal update
 
 #cabal install monadloc-pp
 #cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
-if [ ! -e $BUILD_DIR/haste-compiler-0.3 ]; then
+if [ -e $CACHE_DIR/haste ]; then
+  mv  $CACHE_DIR/haste $BUILD_DIR/haste-compiler-0.3
+else
 curl https://hackage.haskell.org/package/haste-compiler-0.3/haste-compiler-0.3.tar.gz | tar xz -C $BUILD_DIR
 cd $BUILD_DIR
 cd haste-compiler-0.3
@@ -68,13 +70,13 @@ cd haste-compiler
 ./haste-boot
 export PATH=$BUILD_DIR/haste-compiler-0.3/haste-compiler:$PATH
 cd $BUILD_DIR
-git clone https://github.com/agocorona/haste-perch
-cd haste-perch
-haste-inst install
-cd $BUILD_DIR
-git clone https://github.com/agocorona/hplayground
-cd hplayground
-haste-inst install
+#git clone https://github.com/agocorona/haste-perch
+#cd haste-perch
+haste-inst install haste-perch
+#cd $BUILD_DIR
+#git clone https://github.com/agocorona/hplayground
+#cd hplayground
+haste-inst install hplayground
 fi
 
 cd $BUILD_DIR
@@ -86,5 +88,6 @@ rm $FIXED_HOME/.cabal/bin/!(cabal|happy)
 mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
 mv $FIXED_HOME/.cabal $CACHE_DIR/cabal
 mv $FIXED_HOME/ghc $CACHE_DIR/ghc
-
+cp  $CACHE_DIR/ghc/lib/ghc-7.4.1/settings $FIXED_HOME/ghc/lib/ghc-7.4.1/settings
+cp -r $BUILD_DIR/haste-compiler-0.3  $CACHE_DIR/haste
 

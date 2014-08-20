@@ -84,6 +84,7 @@ cd $BUILD_DIR
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"
 shopt -s extglob
+ls  $FIXED_HOME/ghc
 rm $FIXED_HOME/.cabal/bin/!(cabal|happy)
 mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
 mv $FIXED_HOME/.cabal $CACHE_DIR/cabal

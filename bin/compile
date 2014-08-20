@@ -87,7 +87,6 @@ shopt -s extglob
 rm $FIXED_HOME/.cabal/bin/!(cabal|happy)
 mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
 mv $FIXED_HOME/.cabal $CACHE_DIR/cabal
-mv $FIXED_HOME/ghc $CACHE_DIR/ghc
-cp  $CACHE_DIR/ghc/lib/ghc-7.4.1/settings $FIXED_HOME/ghc/lib/ghc-7.4.1/settings
+cp -r $FIXED_HOME/ghc $CACHE_DIR/ghc
 cp -r $BUILD_DIR/haste-compiler-0.3  $CACHE_DIR/haste
 

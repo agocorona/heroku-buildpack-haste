@@ -8,10 +8,6 @@ set -eo pipefail
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-echo "Cache dir name:"
-echo $CACHE_DIR
-echo "Build dir name:"
-echo $BUILD_DIR
 
 FIXED_HOME=/app
 
@@ -77,6 +73,8 @@ haste-inst install haste-perch
 #git clone https://github.com/agocorona/hplayground
 #cd hplayground
 haste-inst install hplayground
+
+cp -r $BUILD_DIR/haste-compiler-0.3  $CACHE_DIR/haste
 fi
 
 cd $BUILD_DIR
@@ -84,10 +82,10 @@ cd $BUILD_DIR
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 echo "-----> Caching Cabal packages"
 shopt -s extglob
-ls  $FIXED_HOME/ghc
 rm $FIXED_HOME/.cabal/bin/!(cabal|happy)
 mv $FIXED_HOME/.ghc $CACHE_DIR/dotghc
 mv $FIXED_HOME/.cabal $CACHE_DIR/cabal
 cp -r $FIXED_HOME/ghc $CACHE_DIR/ghc
-cp -r $BUILD_DIR/haste-compiler-0.3  $CACHE_DIR/haste
+mv -r $FIXED_HOME/ghc $BUILD_DIR/ghc
+
 

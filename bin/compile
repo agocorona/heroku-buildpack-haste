@@ -64,7 +64,7 @@ cd $BUILD_DIR
 #cabal configure -f portable
 #cabal build
 #cd haste-compiler
-cabal install haste-compiler
+cabal install haste-compiler --reinstall
 export PATH=$BUILD_DIR/.cabal/bin:$PATH
 haste-boot
 cd $BUILD_DIR

@@ -55,16 +55,16 @@ cabal update
 #cabal install monadloc-pp
 #cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 
-if [ -e $CACHE_DIR/haste ]; then
-  mv  $CACHE_DIR/haste $FIXED_HOME/.haste
-else
+#if [ -e $CACHE_DIR/haste ]; then
+#  mv  $CACHE_DIR/haste $FIXED_HOME/.haste
+#else
 cd $BUILD_DIR
 cabal install haste-compiler --reinstall
 export PATH=$BUILD_DIR/.cabal/bin:$PATH
 haste-boot
 haste-inst install haste-perch
 haste-inst install hplayground
-fi
+#fi
 
 cd $BUILD_DIR
 

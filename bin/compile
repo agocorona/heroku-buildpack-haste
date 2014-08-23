@@ -56,7 +56,7 @@ cabal update
 #cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 
 if [ -e $CACHE_DIR/haste ]; then
-  mv  $CACHE_DIR/haste $BUILD_DIR/.haste
+  mv  $CACHE_DIR/haste $FIXED_HOME/.haste
 else
 cd $BUILD_DIR
 cabal install haste-compiler --reinstall

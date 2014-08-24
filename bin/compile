@@ -53,9 +53,9 @@ echo "-----> Updating Cabal"
 cabal update
 
 
-#if [ -e $CACHE_DIR/haste ]; then
-#  rm -rf $FIXED_HOME/.haste
-#  mv  $CACHE_DIR/haste $FIXED_HOME/.haste
+if [ -e $CACHE_DIR/haste ]; then
+  rm -rf $FIXED_HOME/.haste
+  mv  $CACHE_DIR/haste $FIXED_HOME/.haste
 #else
 cd $BUILD_DIR
 cabal install haste-compiler --reinstall
@@ -63,7 +63,7 @@ export PATH=$BUILD_DIR/.cabal/bin:$PATH
 haste-boot
 haste-inst install haste-perch
 haste-inst install hplayground
-#fi
+fi
 
 cd $BUILD_DIR
 

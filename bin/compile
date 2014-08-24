@@ -52,11 +52,12 @@ echo "-----> Release the hounds! Installing application"
 echo "-----> Updating Cabal"
 cabal update
 
+rm -r $CACHE_DIR/haste
 
 if [ -e $CACHE_DIR/haste ]; then
   rm -rf $FIXED_HOME/.haste
   mv  $CACHE_DIR/haste $FIXED_HOME/.haste
-#else
+else
 cd $BUILD_DIR
 cabal install haste-compiler --reinstall
 export PATH=$BUILD_DIR/.cabal/bin:$PATH

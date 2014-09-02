@@ -65,6 +65,8 @@ haste-inst install haste-perch
 haste-inst install hplayground
 fi
 
+export PATH=$BUILD_DIR/.cabal/bin:$PATH
+
 cd $BUILD_DIR
 cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls

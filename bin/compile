@@ -56,7 +56,7 @@ cabal update
 if [ -e $CACHE_DIR/haste ]; then
   rm -rf $FIXED_HOME/.haste
   mv  $CACHE_DIR/haste $FIXED_HOME/.haste
-  export PATH=$BUILD_DIR/.cabal/bin:$PATH
+  export PATH=$BUILD_DIR/.cabal/bin:$PATH 
 else
 cd $BUILD_DIR
 cabal install haste-compiler --reinstall

@@ -1,10 +1,7 @@
-# Heroku Buildpack for Haskell modified to install GHC and Haste in the running environment so that Haste programs
-can be build and run.
+# Heroku Buildpack for Haskell modified to install GHC and Haste 
+in the running environment so that Haste programs can be build and run.
 
-It is used to install heroku instances of this project:
-
-http://github.com/agocorona/tryhplay
-
+It is used to install heroku instances of the [tryhplay](http://github.com/agocorona/tryhplay) project
 
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)

@@ -1,5 +1,5 @@
 # Heroku Buildpack for Haskell modified to install GHC and Haste 
-in the running environment so that Haste programs can be build and run.
+in the running environment so that your web application can invoke  GHC and Haste  to build and run programs at exploitation time.
 
 It is used to install heroku instances of the [tryhplay](http://github.com/agocorona/tryhplay) project
 
@@ -10,15 +10,22 @@ for Haskell apps. It uses GHC 7.4.1 and cabal-1.16.0.1.
 
 ## Usage
 
-Use anvil to allow largue compilations:
+Use a linux box. Don´t do this under windows. it does not work.
+
+Your project need at least these files:
 
     $ ls
     Procfile app.cabal src
 
+Create your heroku instance: (previously sign in and download the heroku soft: http://heroku.com)
+
     $ heroku apps:create instance-name 
 
+install anvil to allow large compilations:
 
     $ heroku plugins:install https://github.com/ddollar/heroku-anvil
+
+Build and release your project:
 
     $ heroku build -r -b https://github.com/agocorona/heroku-buildpack-haste.git
 
@@ -33,9 +40,9 @@ Use anvil to allow largue compilations:
     ...
 
 
-TT set the PATH environment. Run this in the console:
+Set the PATH environment. Run this in the console:
 
     $ heroku config:set PATH=/app/ghc/bin:/app/.cabal/bin:/app/bin:/app/node_modules/.bin:node_modules/.bin:/app/bin:/app/node_modules/.bin:/usr/local/bin:/usr/bin:/bin 
 
 
-then you can invoke ghc, cabal, hastec, haste-inst etc from your web application.
+Then you can invoke ghc, cabal, hastec, haste-inst etc from your web application.

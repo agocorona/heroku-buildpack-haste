@@ -61,10 +61,9 @@ cd $BUILD_DIR
 cabal install haste-compiler --reinstall
 export PATH=$BUILD_DIR/.cabal/bin:$PATH
 haste-boot
-haste-inst install haste-perch
-haste-inst install hplayground
 fi
 
+haste-inst install haste-perch
 haste-inst install hplayground
 
 

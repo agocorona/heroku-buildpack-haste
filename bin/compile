@@ -22,6 +22,14 @@ mkdir -p $CACHE_DIR
   mv $CACHE_DIR/ghc $FIXED_HOME
 
 
+# Set LD_LIBRARAY_PATH and link essential libraries
+mkdir -p $FIXED_HOME/usr/lib
+ln -s /usr/lib/libgmp.so.3.5.2 $FIXED_HOME/usr/lib/libgmp.so.10
+export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
+
+# Set PATH
+export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin:$PATH
+echo $PATH
 
 
 
@@ -39,14 +47,6 @@ mkdir -p $CACHE_DIR
     ./bootstrap.sh
   mv $FIXED_HOME/cabal-install-1.20.0.2 $FIXED_HOME/.cabal
 
-# Set LD_LIBRARAY_PATH and link essential libraries
-mkdir -p $FIXED_HOME/usr/lib
-ln -s /usr/lib/libgmp.so.3.5.2 $FIXED_HOME/usr/lib/libgmp.so.10
-export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
-
-# Set PATH
-export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin:$PATH
-echo $PATH
 
 echo "-----> Release the hounds! Installing application"
 

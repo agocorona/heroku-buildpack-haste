@@ -2,7 +2,7 @@
 # bin/compile <build-dir> <cache-dir>
 
 # Fail fast and fail hard.
-set -eo pipefail
+# set -eo pipefail
 
 
 BUILD_DIR=$1

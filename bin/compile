@@ -28,7 +28,7 @@ mkdir -p $CACHE_DIR
 
       CABAL_URL="http://www.haskell.org/cabal/release/cabal-install-1.20.0.2/cabal-install-1.20.0.2.tar.gz"
       echo "-----> Downloading cabal-install 1.20.0.2"
-      md  $CACHE_DIR/download
+      mkdir $CACHE_DIR/download
       curl -# -L "$CABAL_URL" | tar zx -C $CACHE_DIR/download
     
 

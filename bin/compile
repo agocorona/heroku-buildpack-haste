@@ -6,7 +6,7 @@ set -eo pipefail
 
 
 BUILD_DIR=$1
-CACHE_DIR=NONE # $2
+CACHE_DIR=$2
 
 
 FIXED_HOME=/app

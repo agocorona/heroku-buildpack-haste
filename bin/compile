@@ -8,10 +8,8 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-rm -r $CACHE_DIR/ghc/*
-rm -r $CACHE_DIR/dotghc/*
-rm -r $CACHE_DIR/cabal/*
-rm -r $CACHE_DIR/haste/*
+rm -r $CACHE_DIR/*
+
 
 FIXED_HOME=/app
 

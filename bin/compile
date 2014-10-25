@@ -6,7 +6,7 @@ set -eo pipefail
 
 
 BUILD_DIR=$1
-CACHE_DIR=$2
+CACHE_DIR=NONE # $2
 
 
 FIXED_HOME=/app
@@ -14,7 +14,8 @@ FIXED_HOME=/app
 mkdir -p $CACHE_DIR
 
 if [ ! -e $CACHE_DIR/ghc ]; then
-  GHC_URL="http://informatik.uni-kiel.de/~sad/ghc.tar.gz"
+  #GHC_URL="http://informatik.uni-kiel.de/~sad/ghc.tar.gz"
+  GHC_URL="http://s3.amazonaws.com/heroku-ghc/heroku-ghc-7.8.3.tar.gz"
   echo "-----> Downloading GHC"
   curl -# --max-time 120 -L "$GHC_URL" | tar xz -C $CACHE_DIR
 fi
@@ -33,7 +34,8 @@ if [ -e $CACHE_DIR/cabal ]; then
   rm -rf $FIXED_HOME/.cabal
   mv $CACHE_DIR/cabal $FIXED_HOME/.cabal
 elif [ ! -e $FIXED_HOME/.cabal ]; then
-  CABAL_URL="http://informatik.uni-kiel.de/~sad/cabal.tar.gz"
+  #CABAL_URL="http://informatik.uni-kiel.de/~sad/cabal.tar.gz"
+  CABAL_URL="http://s3.amazonaws.com/heroku-ghc//heroku-cabal-install-1.20.0.2.tar.gz"
   echo "-----> Downloading Cabal"
   curl -# --max-time 120 -L "$CABAL_URL" | tar xz -C $FIXED_HOME
 fi

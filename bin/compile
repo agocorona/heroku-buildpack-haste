@@ -20,6 +20,8 @@ if [ ! -e $CACHE_DIR/ghc ]; then
   GHC_URL="http://s3.amazonaws.com/heroku-ghc/heroku-ghc-7.8.3.tar.gz"
   echo "-----> Downloading GHC"
   curl -# --max-time 120 -L "$GHC_URL" | tar xz -C $CACHE_DIR
+  # Fix directory
+  mv $CACHE_DIR/ghc $FIXED_HOME
 fi
 
 # Restore GHC registry if available
@@ -28,8 +30,7 @@ if [ -e $CACHE_DIR/dotghc ]; then
   mv $CACHE_DIR/dotghc $FIXED_HOME/.ghc
 fi
 
-# Fix directory
-mv $CACHE_DIR/ghc $FIXED_HOME
+
 
 # Restore Cabal cache or download an empty environemt
 if [ -e $CACHE_DIR/cabal ]; then

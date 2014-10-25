@@ -30,7 +30,7 @@ mkdir -p $CACHE_DIR
   CABAL_URL="http://s3.amazonaws.com/heroku-ghc/heroku-cabal-install-1.20.0.2.tar.gz"
   echo "-----> Downloading Cabal"
   curl -# --max-time 120 -L "$CABAL_URL" | tar xz -C $FIXED_HOME
-
+  mv $FIXED_HOME/cabal-install-1.20.0.2 $FIXED_HOME/.cabal
 
 # Set LD_LIBRARAY_PATH and link essential libraries
 mkdir -p $FIXED_HOME/usr/lib

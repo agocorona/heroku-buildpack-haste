@@ -8,7 +8,7 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-
+rm -r CACHE_DIR/*
 
 FIXED_HOME=/app
 

@@ -52,6 +52,8 @@ export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
 export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin:$PATH
 echo $PATH
 
+ghc --numeric-version
+
 echo "-----> Release the hounds! Installing application"
 
 echo "-----> Updating Cabal"

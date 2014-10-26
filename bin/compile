@@ -57,6 +57,7 @@ echo "-----> Release the hounds! Installing application"
 echo "-----> Updating Cabal"
 cabal update
 
+cabal install cabal-install
 
 if [ -e $CACHE_DIR/haste ]; then
   rm -rf $FIXED_HOME/.haste

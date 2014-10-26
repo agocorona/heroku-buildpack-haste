@@ -11,7 +11,7 @@ CACHE_DIR=$2
 
 FIXED_HOME=/app
 
-rm -r CACHE_DIR/*
+
 
 mkdir -p $CACHE_DIR
 

@@ -13,40 +13,39 @@ FIXED_HOME=/app
 
 mkdir -p $CACHE_DIR
 
-
-  #GHC_URL="http://informatik.uni-kiel.de/~sad/ghc.tar.gz"
-  GHC_URL="http://s3.amazonaws.com/heroku-ghc/heroku-ghc-7.8.3.tar.gz"
+if [ ! -e $CACHE_DIR/ghc ]; then
+  GHC_URL="http://informatik.uni-kiel.de/~sad/ghc.tar.gz"
   echo "-----> Downloading GHC"
   curl -# --max-time 120 -L "$GHC_URL" | tar xz -C $CACHE_DIR
-  # Fix directory
-  mv $CACHE_DIR/ghc $FIXED_HOME
+fi
 
+# Restore GHC registry if available
+if [ -e $CACHE_DIR/dotghc ]; then
+  rm -rf $FIXED_HOME/app/.ghc
+  mv $CACHE_DIR/dotghc $FIXED_HOME/.ghc
+fi
+
+# Fix directory
+mv $CACHE_DIR/ghc $FIXED_HOME
+
+# Restore Cabal cache or download an empty environemt
+if [ -e $CACHE_DIR/cabal ]; then
+  rm -rf $FIXED_HOME/.cabal
+  mv $CACHE_DIR/cabal $FIXED_HOME/.cabal
+elif [ ! -e $FIXED_HOME/.cabal ]; then
+  CABAL_URL="http://informatik.uni-kiel.de/~sad/cabal.tar.gz"
+  echo "-----> Downloading Cabal"
+  curl -# --max-time 120 -L "$CABAL_URL" | tar xz -C $FIXED_HOME
+fi
 
 # Set LD_LIBRARAY_PATH and link essential libraries
 mkdir -p $FIXED_HOME/usr/lib
-ln -s /usr/lib/libgmp.so.3.5.2 $FIXED_HOME/usr/lib/libgmp.so.10
+ln -s /usr/lib/libgmp.so.3.5.2 $FIXED_HOME/usr/lib/libgmp.so
 export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
 
 # Set PATH
 export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin:$PATH
 echo $PATH
-
-
-
-
-      CABAL_URL="http://www.haskell.org/cabal/release/cabal-install-1.20.0.2/cabal-install-1.20.0.2.tar.gz"
-      echo "-----> Downloading cabal-install 1.20.0.2"
-      mkdir $CACHE_DIR/download
-      curl -# -L "$CABAL_URL" | tar zx -C $CACHE_DIR/download
-    
-
-    echo "-----> Installing cabal-install 1.20.0.2"
-    cd $CACHE_DIR/download/cabal-install-1.20.0.2
-    export PREFIX=$FIXED_HOME/vendor/cabal-install-1.20.0.2
-
-    ./bootstrap.sh
-  mv $FIXED_HOME/cabal-install-1.20.0.2 $FIXED_HOME/.cabal
-
 
 echo "-----> Release the hounds! Installing application"
 
@@ -54,11 +53,15 @@ echo "-----> Updating Cabal"
 cabal update
 
 
-
+if [ -e $CACHE_DIR/haste ]; then
+  rm -rf $FIXED_HOME/.haste
+  mv  $CACHE_DIR/haste $FIXED_HOME/.haste
+else
+cd $BUILD_DIR
 cabal install haste-compiler --reinstall
 export PATH=$BUILD_DIR/.cabal/bin:$PATH
 haste-boot
-
+fi
 
 haste-inst install haste-perch
 haste-inst install hplayground
@@ -81,4 +84,3 @@ mv  $FIXED_HOME/ghc $BUILD_DIR/ghc
 cp -r $FIXED_HOME/.haste  $CACHE_DIR/haste
 rm -rf $BUILD_DIR/.haste
 mv  $FIXED_HOME/.haste $BUILD_DIR
-

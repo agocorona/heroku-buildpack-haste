@@ -14,6 +14,7 @@ FIXED_HOME=/app
 
 
 mkdir -p $CACHE_DIR
+mkdir -p $FIXED_HOME
 
 rm -r $CACHE_DIR/*
 
@@ -22,7 +23,6 @@ if [ ! -e $CACHE_DIR/ghc ]; then
   GHC_URL="http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz2"
   echo "-----> Downloading GHC"
   curl -# --max-time 120 -L "$GHC_URL" | tar xvjf -C $FIXED_HOME
-  mv $FIXED_HOME/ghc-7.8.3 $FIXED_HOME/ghc
 fi
 
 # Restore GHC registry if available

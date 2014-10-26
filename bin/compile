@@ -15,6 +15,8 @@ FIXED_HOME=/app
 
 mkdir -p $CACHE_DIR
 
+rm -r $CACHE_DIR/*
+
 if [ ! -e $CACHE_DIR/ghc ]; then
   #GHC_URL="http://informatik.uni-kiel.de/~sad/ghc.tar.gz"
   GHC_URL="http://s3.amazonaws.com/heroku-ghc/heroku-ghc-7.8.3.tar.gz"

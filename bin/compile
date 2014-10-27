@@ -9,67 +9,10 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 
-FIXED_HOME=/app
 
 
 
-mkdir -p $CACHE_DIR
-mkdir -p $FIXED_HOME
-cd $FIXED_HOME
-rm -r $CACHE_DIR/*
-
-if [ ! -e $CACHE_DIR/ghc ]; then
-  #GHC_URL="http://informatik.uni-kiel.de/~sad/ghc.tar.gz"
-  GHC_URL="http://www.haskell.org/ghc/dist/7.6.3/ghc-7.6.3-x86_64-unknown-linux.tar.bz2"
-  echo "-----> Downloading GHC"
-  curl -# --max-time 120 -L "$GHC_URL" | tar xvj   # -C $FIXED_HOME
-  mv ghc-7.6.3 ghc
-fi
-
-# Restore GHC registry if available
-if [ -e $CACHE_DIR/dotghc ]; then
-  rm -rf $FIXED_HOME/app/.ghc
-  mv $CACHE_DIR/dotghc $FIXED_HOME/.ghc
-fi
-
-
-
-# Restore Cabal cache or download an empty environemt
-if [ -e $CACHE_DIR/cabal ]; then
-  rm -rf $FIXED_HOME/.cabal
-  mv $CACHE_DIR/cabal $FIXED_HOME/.cabal
-elif [ ! -e $FIXED_HOME/.cabal ]; then
-  CABAL_URL="http://informatik.uni-kiel.de/~sad/cabal.tar.gz"
-  echo "-----> Downloading Cabal"
-  curl -# --max-time 120 -L "$CABAL_URL" | tar xz -C $FIXED_HOME
-fi
-
-# Set LD_LIBRARAY_PATH and link essential libraries
-mkdir -p $FIXED_HOME/usr/lib
-ln -s /usr/lib/libgmp.so.3.5.2 $FIXED_HOME/usr/lib/libgmp.so
-export LD_LIBRARY_PATH=$FIXED_HOME/usr/lib
-
-# Set PATH
-export PATH=$FIXED_HOME/ghc/bin:$FIXED_HOME/.cabal/bin:$PATH
-echo $PATH
-
-
-echo "-----> Release the hounds! Installing application"
-
-echo "-----> Updating Cabal"
-cabal update
-
-cabal install cabal-install
-
-if [ -e $CACHE_DIR/haste ]; then
-  rm -rf $FIXED_HOME/.haste
-  mv  $CACHE_DIR/haste $FIXED_HOME/.haste
-else
-cd $BUILD_DIR
-cabal install haste-compiler --reinstall
-export PATH=$BUILD_DIR/.cabal/bin:$PATH
 haste-boot
-fi
 
 haste-inst install haste-perch
 haste-inst install hplayground
@@ -78,17 +21,5 @@ haste-inst install hplayground
 cd $BUILD_DIR
 cabal install cpphs -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
 cabal install  -j5 --disable-library-profiling --disable-executable-profiling --disable-shared  --reinstall --force-reinstalls
-echo "-----> Caching Cabal packages"
-shopt -s extglob
-export PATH=$BUILD_DIR/.cabal/bin:$PATH 
-echo $PATH
-# rm $FIXED_HOME/.cabal/bin/!(cabal|happy)
-cp -r $FIXED_HOME/.ghc $CACHE_DIR/dotghc
-mv $FIXED_HOME/.ghc $BUILD_DIR/.ghc
-cp -r $FIXED_HOME/.cabal $CACHE_DIR/cabal
-mv $FIXED_HOME/.cabal $BUILD_DIR/.cabal
-cp -r $FIXED_HOME/ghc $CACHE_DIR/ghc
-mv  $FIXED_HOME/ghc $BUILD_DIR/ghc
-cp -r $FIXED_HOME/.haste  $CACHE_DIR/haste
-rm -rf $BUILD_DIR/.haste
-mv  $FIXED_HOME/.haste $BUILD_DIR
+
+

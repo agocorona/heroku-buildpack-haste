@@ -13,6 +13,8 @@ WORKING_HOME=/app
 LIBRARY_PATH=$WORKING_HOME/vendor/ghc-libs:/usr/lib
 LD_LIBRARY_PATH=$WORKING_HOME/vendor/ghc-libs:/usr/lib
 
+PATH=$WORKING_HOME/vendor/ghc-$GHC_VER/bin:$WORKING_HOME/vendor/cabal-install-$CABAL_VER/bin:$WORKING_HOME/vendor/ghc-utils/bin:$WORKING_HOME/.cabal-sandbox/bin:$PATH
+
 cabal install haste-compiler
 haste-boot
 

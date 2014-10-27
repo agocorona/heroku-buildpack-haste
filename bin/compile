@@ -10,7 +10,8 @@ CACHE_DIR=$2
 
 WORKING_HOME=/app
 
-export LIBRARY_PATH=$WORKING_HOME/vendor/ghc-libs:/usr/lib:$LIBRARY_PATH
+LIBRARY_PATH=$WORKING_HOME/vendor/ghc-libs:/usr/lib
+LD_LIBRARY_PATH=$WORKING_HOME/vendor/ghc-libs:/usr/lib
 
 /app/.cabal-sandbox/bin/haste-boot
 

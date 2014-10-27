@@ -13,7 +13,8 @@ WORKING_HOME=/app
 LIBRARY_PATH=$WORKING_HOME/vendor/ghc-libs:/usr/lib
 LD_LIBRARY_PATH=$WORKING_HOME/vendor/ghc-libs:/usr/lib
 
-/app/.cabal-sandbox/bin/haste-boot
+cabal install haste-compiler
+haste-boot
 
 haste-inst install haste-perch
 haste-inst install hplayground

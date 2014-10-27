@@ -14,7 +14,7 @@ ENV_DIR="$3"
 GHC_VER=${GHC_VER:-7.8.3}
 CABAL_VER=${CABAL_VER:-1.20.0.2}
 PREBUILT=${PREBUILT:-https://s3.amazonaws.com/heroku-ghc}
-CLEAR_CACHE={CLEAR_CACHE:-0}
+CLEAR_CACHE=1  # {CLEAR_CACHE:-0}
 
 CABAL_INDEX="~/.cabal/packages/hackage.haskell.org/00-index.tar"
 #############################################################################

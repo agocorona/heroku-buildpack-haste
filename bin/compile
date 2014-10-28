@@ -255,13 +255,14 @@ cabal configure --disable-library-profiling --disable-executable-profiling --dis
 cabal install --only-dependencies --reorder-goals --disable-library-profiling --disable-tests --disable-library-coverage --disable-benchmarks --disable-documentation --disable-split-objs
 cabal build -j
 
-#echo "-----> Installing haste"
-#cabal install haste-compiler
+echo "-----> Installing haste"
+cabal install haste-compiler
 #rm cabal.config
-#haste-boot
+echo "-----> HASTE BOOT"
+haste-boot
 
-#haste-inst install haste-perch
-#haste-inst install hplayground
+haste-inst install haste-perch
+haste-inst install hplayground
 
 # Set context environment variables.
 set-env PATH "/app/vendor/ghc-$GHC_VER/bin:/app/vendor/ghc-utils/bin:/app/vendor/cabal-install-$CABAL_VER/bin:$PATH"

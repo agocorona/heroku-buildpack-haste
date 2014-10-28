@@ -257,6 +257,7 @@ cabal build -j
 
 echo "-----> Installing haste"
 cabal install haste-compiler
+rm cabal.config
 haste-boot
 
 haste-inst install haste-perch

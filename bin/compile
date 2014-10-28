@@ -260,8 +260,7 @@ cabal install haste-compiler
 rm cabal.config
 echo "-----> HASTE BOOT"
 haste-boot
-
-haste-inst install haste-perch
+echo "----> Install hplayground"
 haste-inst install hplayground
 
 # Set context environment variables.

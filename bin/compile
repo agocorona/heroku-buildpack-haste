@@ -257,7 +257,7 @@ cabal build -j
 
 echo "-----> Installing haste"
 cabal install haste-compiler
-#rm cabal.config
+rm cabal.config
 echo "-----> HASTE BOOT"
 haste-boot
 

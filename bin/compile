@@ -256,7 +256,7 @@ cabal install --only-dependencies --reorder-goals --disable-library-profiling --
 cabal build -j
 
 echo "-----> Installing haste"
-rm cabal.config
+cabal install haste-compiler
 echo "-----> HASTE BOOT"
 haste-boot
 echo "----> Install hplayground"

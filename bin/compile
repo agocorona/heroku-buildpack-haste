@@ -255,12 +255,21 @@ cabal configure --disable-library-profiling --disable-executable-profiling --dis
 cabal install --only-dependencies --reorder-goals --disable-library-profiling --disable-tests --disable-library-coverage --disable-benchmarks --disable-documentation --disable-split-objs
 cabal build -j
 
+if [ -e $CACHE_DIR/.haste ]; then
+  echo "-----> Restoring cached cabal sandbox"
+  rm -fr $WORKING_HOME/.haste
+  cp -R $CACHE_DIR/.haste $WORKING_HOME
+else
 echo "----> INSTALL HASTE"
 cabal install haste-compiler
 echo "----> BOOT HASTE"
 haste-boot
+
 echo "----> INSTALL HPLAYGROUND"
 cabal install hplayground
+
+cp -R $WORKING_HOME/.haste $CACHE_DIR
+endif
 
 # Set context environment variables.
 set-env PATH "/app/vendor/ghc-$GHC_VER/bin:/app/vendor/ghc-utils/bin:/app/vendor/cabal-install-$CABAL_VER/bin:$PATH"

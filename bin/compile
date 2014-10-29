@@ -266,7 +266,7 @@ echo "----> BOOT HASTE"
 haste-boot
 
 echo "----> INSTALL HPLAYGROUND"
-cabal install hplayground
+haste-inst install hplayground
 
 ls   $WORKING_HOME/.haste/jsmods 
 

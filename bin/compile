@@ -112,9 +112,9 @@ function install_prebuilt_library {
       ./configure $FLAGS --prefix=$CACHE_DIR/$NAME-$VER/build --libdir=$CACHE_DIR/$NAME-$VER/ghc-libs --includedir=$CACHE_DIR/$NAME-$VER/ghc-includes
       make install
       # Remove unnecessary files
-      rm -rf $CACHE_DIR/$NAME-$VER/build
-      find $CACHE_DIR/$NAME-$VER/ghc-libs -xtype f -not -name '*.so*' -print0| xargs -0 -r rm
-      find $CACHE_DIR/$NAME-$VER/ghc-includes -xtype f -not -name '*.h*' -print0| xargs -0 -r rm
+      #rm -rf $CACHE_DIR/$NAME-$VER/build
+      #find $CACHE_DIR/$NAME-$VER/ghc-libs -xtype f -not -name '*.so*' -print0| xargs -0 -r rm
+      #find $CACHE_DIR/$NAME-$VER/ghc-includes -xtype f -not -name '*.h*' -print0| xargs -0 -r rm
     fi
   fi
   echo "-----> Restoring $NAME files from cache"

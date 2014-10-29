@@ -271,6 +271,10 @@ cabal install hplayground
 cp -R $WORKING_HOME/.haste $CACHE_DIR
 fi
 
+if [ -d $WORKING_HOME/.haste ]; then
+  mv $WORKING_HOME/.haste $BUILD_DIR
+fi
+
 # Set context environment variables.
 set-env PATH "/app/vendor/ghc-$GHC_VER/bin:/app/vendor/ghc-utils/bin:/app/vendor/cabal-install-$CABAL_VER/bin:$PATH"
 

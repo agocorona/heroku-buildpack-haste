@@ -268,7 +268,7 @@ haste-boot
 echo "----> INSTALL HPLAYGROUND"
 cabal install hplayground
 
-ls   $WORKING_HOME/.haste 
+ls   $WORKING_HOME/.haste/jsmods 
 
 cp -R $WORKING_HOME/.haste $CACHE_DIR
 mv $WORKING_HOME/.haste $BUILD_DIR

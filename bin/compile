@@ -256,7 +256,7 @@ cabal install --only-dependencies --reorder-goals --disable-library-profiling --
 cabal build -j
 
 if [ -e $CACHE_DIR/.haste ]; then
-  echo "-----> Restoring cached cabal sandbox"
+  echo "-----> RESTORING HASTE"
   rm -fr $WORKING_HOME/.haste
   cp -R $CACHE_DIR/.haste $WORKING_HOME
 else

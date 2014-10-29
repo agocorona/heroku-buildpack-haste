@@ -269,7 +269,7 @@ echo "----> INSTALL HPLAYGROUND"
 cabal install hplayground
 
 cp -R $WORKING_HOME/.haste $CACHE_DIR
-endif
+fi
 
 # Set context environment variables.
 set-env PATH "/app/vendor/ghc-$GHC_VER/bin:/app/vendor/ghc-utils/bin:/app/vendor/cabal-install-$CABAL_VER/bin:$PATH"

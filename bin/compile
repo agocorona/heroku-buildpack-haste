@@ -255,26 +255,12 @@ cabal configure --disable-library-profiling --disable-executable-profiling --dis
 cabal install --only-dependencies --reorder-goals --disable-library-profiling --disable-tests --disable-library-coverage --disable-benchmarks --disable-documentation --disable-split-objs
 cabal build -j
 
-if [ -e $CACHE_DIR/haste ]; then
-  mv $CACHE_DIR/haste $WORKING_HOME/haste-compiler-4.3
-else
-curl https://hackage.haskell.org/package/haste-compiler-0.3/haste-compiler-4.3.tar.gz | tar xz -C $WORKING_HOME
-cd $WORKING_HOME
-cd haste-compiler-4.3
-cabal configure -f portable
-cabal build
-cd haste-compiler
-./haste-boot
-export PATH=$WORKING_HOME/haste-compiler-0.3/haste-compiler:$PATH
-cd $WORKING_HOME
-git clone https://github.com/agocorona/haste-perch
-cd haste-perch
-haste-inst install
-cd $WORKING_HOME
-git clone https://github.com/agocorona/hplayground
-cd hplayground
-haste-inst install
-fi
+echo "----> INSTALL HASTE"
+cabal install haste-compiler
+echo "----> BOOT HASTE"
+haste-boot
+echo "----> INSTALL HPLAYGROUND"
+cabal install hplayground
 
 # Set context environment variables.
 set-env PATH "/app/vendor/ghc-$GHC_VER/bin:/app/vendor/ghc-utils/bin:/app/vendor/cabal-install-$CABAL_VER/bin:$PATH"
@@ -293,7 +279,6 @@ if [ -d $WORKING_HOME/.cabal-sandbox ]; then
   cp -R $WORKING_HOME/.cabal-sandbox $CACHE_DIR
 fi
 
-cp $WORKING_HOME/haste-compiler-0.4.3 $CACHE_DIR/haste
 
 echo "-----> Making GHC binaries available to Heroku command line"
 mkdir -p $BUILD_DIR/vendor

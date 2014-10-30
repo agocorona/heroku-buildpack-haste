@@ -262,6 +262,7 @@ if [ -e $CACHE_DIR/.haste ]; then
 else
 echo "----> INSTALL HASTE"
 cabal install haste-compiler
+fi
 echo "----> BOOT HASTE"
 haste-boot
 cd $WORKING_HOME
@@ -272,7 +273,7 @@ ls   $WORKING_HOME/.haste/jsmods
 
 cp -R $WORKING_HOME/.haste $CACHE_DIR
 mv $WORKING_HOME/.haste $BUILD_DIR
-fi
+
 
 
 

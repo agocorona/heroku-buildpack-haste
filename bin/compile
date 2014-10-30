@@ -267,7 +267,7 @@ echo "----> BOOT HASTE"
 haste-boot
 cd $WORKING_HOME
 echo "----> INSTALL HPLAYGROUND"
-haste-inst install hplayground
+haste-inst install hplayground --reinstall --force-reinstalls
 
 ls   $WORKING_HOME/.haste/jsmods 
 

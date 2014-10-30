@@ -263,8 +263,7 @@ else
 echo "----> INSTALL HASTE"
 cabal install haste-compiler
 echo "----> BOOT HASTE"
-cd $WORKING_HOME/.haste/include
-haste-boot --force --local
+haste-boot  --local
 cd $WORKING_HOME
 echo "----> INSTALL HPLAYGROUND"
 haste-inst install hplayground
